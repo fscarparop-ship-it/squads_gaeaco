@@ -1,0 +1,156 @@
+# Cross-Squad Handoff Contracts
+# Defines what brand-squad outputs feed into other squads as inputs
+# Referenced by: brand-chief routing, wf-brand-to-channels, wf-brand-launch-full
+
+handoffs:
+
+  brand_to_design:
+    source_squad: brand-squad
+    target_squad: design-squad
+    description: "Brand identity system feeds into design system creation"
+    source_outputs:
+      - name: identity_system
+        from_task: build-identity.md
+        from_agent: alina-wheeler
+        contains: "Colors (hex, RGB, CMYK), typography (primary, secondary, web-safe), logo direction, visual style, photography style, iconography, layout principles"
+      - name: visual_guidelines
+        from_task: branding-strategy-guide.md
+        from_agent: marty-neumeier
+        contains: "Strategic color palette with justifications, typography with personality rationale, composition principles, channel-specific visual rules"
+    target_inputs:
+      - task: create-design-system.md
+        field: brand_guidelines
+        maps_to: "Colors, typography, logos — the atomic design tokens originate from the brand identity"
+      - task: audit-design.md
+        field: brand_reference
+        maps_to: "Visual identity system used to evaluate design consistency"
+    handoff_contract: |
+      The brand-squad delivers a complete identity system (Wheeler) built on strategic
+      guidelines (Neumeier). The design-squad receives this as the brand_guidelines input
+      and translates it into atomic design tokens: color tokens from the brand palette,
+      type tokens from the brand typography, spacing and layout from brand grid principles.
+      The design system MUST pass Neumeier's Swap Test and Hand Test.
+
+  brand_to_copy:
+    source_squad: brand-squad
+    target_squad: copy-squad
+    description: "Brand voice, messaging, and Onlyness Statement feed into copy creation"
+    source_outputs:
+      - name: brand_voice
+        from_task: build-identity.md
+        from_agent: alina-wheeler
+        contains: "Tone dimensions, voice dos/don'ts, vocabulary preferences, messaging hierarchy"
+      - name: onlyness_statement
+        from_task: branding-strategy-guide.md
+        from_agent: marty-neumeier
+        contains: "Onlyness Statement, brand personality, tribal values, brand commitment matrix"
+      - name: brandscript
+        from_task: create-brand-story.md
+        from_agent: donald-miller
+        contains: "StoryBrand SB7 script, one-liner, key messages"
+    target_inputs:
+      - task: write-ad-copy.md
+        field: brand_voice
+        maps_to: "Tone, vocabulary, and messaging guardrails for all ad copy"
+      - task: write-email-sequence.md
+        field: brand_voice
+        maps_to: "Voice consistency across email touchpoints"
+      - task: write-sales-letter.md
+        field: brand_voice
+        maps_to: "Voice alignment in long-form sales copy"
+      - task: write-landing-page.md
+        field: brand_voice
+        maps_to: "Messaging hierarchy and voice for landing pages"
+    handoff_contract: |
+      The brand-squad delivers voice guidelines, the Onlyness Statement, and the BrandScript.
+      The copy-squad uses these as guardrails: the Onlyness Statement becomes the core claim,
+      the BrandScript provides the narrative structure, and the voice guidelines constrain
+      tone, vocabulary, and messaging hierarchy. Copy MUST sound like the brand — if you
+      cover the logo and read the copy, it should still be recognizable (Neumeier's Hand Test).
+
+  brand_to_storytelling:
+    source_squad: brand-squad
+    target_squad: storytelling
+    description: "Brand positioning and Onlyness Statement feed into brand narrative"
+    source_outputs:
+      - name: positioning_strategy
+        from_task: create-positioning.md
+        from_agent: al-ries
+        contains: "Positioning statement, category map, tagline, proof points"
+      - name: onlyness_statement
+        from_task: branding-strategy-guide.md
+        from_agent: marty-neumeier
+        contains: "Onlyness Statement with 6 dimensions, Brand Commitment Matrix (I.A.M. ↔ P.O.V.)"
+      - name: archetype_profile
+        from_task: map-archetype.md
+        from_agent: archetype-consultant
+        contains: "Primary and secondary archetypes, expression guide, narrative patterns"
+    target_inputs:
+      - workflow: wf-brand-narrative.yaml
+        field: brand_values
+        maps_to: "Park Howell's ABT narrative draws from brand positioning and values"
+      - task: build-narrative.md
+        field: brand_context
+        maps_to: "Archetype informs narrative tone; Onlyness gives the spine of the story"
+      - task: create-pitch.md
+        field: brand_positioning
+        maps_to: "Oren Klaff's pitch frame built on brand positioning"
+    handoff_contract: |
+      The brand-squad delivers positioning, Onlyness Statement, and archetype profile.
+      The storytelling squad uses the Onlyness Statement as the narrative spine — the
+      "only X that Y" becomes the story's through-line. The archetype guides character
+      and tone. The Brand Commitment Matrix (I.A.M. ↔ P.O.V.) from The Brand Flip provides
+      the tribal story: who the audience is, what they aspire to, and how the brand enables
+      their journey. People don't buy brands — they join brands.
+
+  brand_to_traffic:
+    source_squad: brand-squad
+    target_squad: traffic-masters
+    description: "Brand guidelines and channel application feed into ad creative and strategy"
+    source_outputs:
+      - name: channel_application
+        from_task: branding-strategy-guide.md
+        from_agent: marty-neumeier
+        contains: "Per-channel guidelines: feed grid, stories style, visual rules, tone per channel, content prohibitions"
+      - name: identity_system
+        from_task: build-identity.md
+        from_agent: alina-wheeler
+        contains: "Complete visual identity: colors, fonts, logo variations, imagery style"
+    target_inputs:
+      - task: create-ad-creative.md
+        field: brand_guidelines
+        maps_to: "Colors, fonts, tone constraints for ad creative development"
+      - task: create-ad-strategy.md
+        field: brand_context
+        maps_to: "Brand positioning informs audience targeting and messaging strategy"
+    handoff_contract: |
+      The brand-squad delivers channel-specific application guidelines (Neumeier) and the
+      visual identity system (Wheeler). The traffic-masters squad uses these to constrain
+      ad creative: colors, fonts, imagery style, and tone must match the brand system.
+      Ad creative is brand expression under performance pressure — it must convert AND
+      reinforce the same perception. Every ad that breaks brand guidelines destroys
+      equity that took months to build.
+
+routing_sequences:
+  brand_first_full_launch:
+    description: "Complete sequence: brand strategy first, then all squads execute from the same brand foundation"
+    sequence:
+      - squad: brand-squad
+        workflow: "*brand-to-channels"
+        produces: ["onlyness_statement", "visual_guidelines", "channel_application", "identity_system", "commitment_matrix"]
+      - squad: storytelling
+        workflow: "*brand-narrative"
+        receives: ["onlyness_statement", "archetype_profile", "positioning_strategy"]
+        produces: ["brand_stories", "culture_manifesto", "presentations"]
+      - squad: copy-squad
+        tasks: ["*write-ad-copy", "*write-landing-page", "*write-email-sequence"]
+        receives: ["brand_voice", "onlyness_statement", "brandscript"]
+        produces: ["ad_copy", "landing_page_copy", "email_sequences"]
+      - squad: design-squad
+        workflow: "*design-system-creation"
+        receives: ["identity_system", "visual_guidelines"]
+        produces: ["design_system", "component_library"]
+      - squad: traffic-masters
+        workflow: "*campaign-launch"
+        receives: ["channel_application", "identity_system", "ad_copy"]
+        produces: ["campaign_strategy", "ad_creative_package"]

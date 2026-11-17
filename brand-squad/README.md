@@ -9,7 +9,8 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 *diagnose              # Triage your brand challenge
 *brand-creation        # End-to-end brand creation workflow
 *rebrand               # Rebrand an existing brand
-*brand-to-channels     # Brand strategy to channel execution
+*brand-to-channels        # Brand strategy to channel execution
+*brand-launch-full        # Cross-squad full brand launch (all 5 squads)
 *branding-strategy-guide  # Neumeier's branding strategy guide
 ```
 
@@ -48,9 +49,9 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 
 - **15 agents** — 1 orchestrator + 10 thinkers + 4 specialists
 - **10 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype, branding-strategy-guide
-- **3 workflows** — brand-creation (full), rebrand (existing brands), brand-to-channels (strategy to channel execution)
+- **4 workflows** — brand-creation (full), rebrand (existing brands), brand-to-channels (strategy to channel execution), brand-launch-full (cross-squad full launch)
 - **1 checklist** — output-quality
-- **2 data files** — brand-frameworks, routing-catalog
+- **3 data files** — brand-frameworks, routing-catalog, cross-squad-handoffs
 
 ## Workflows
 
@@ -62,6 +63,9 @@ Audit > positioning review > identity update > messaging refresh.
 
 ### Brand to Channels (`*brand-to-channels`)
 Archetype > Neumeier branding strategy guide (onlyness + 5 disciplines + visual guidelines) > identity system > validation & channel package.
+
+### Brand Launch Full (`*brand-launch-full`)
+Cross-squad workflow using all 5 squads: brand foundation (archetype + Neumeier strategy + Wheeler identity + Miller BrandScript) > parallel execution (storytelling narratives + copy-squad ad copy + design-squad design system) > traffic-masters campaign strategy > cross-squad validation with Neumeier's 4 tests.
 
 ## Requirements
 
