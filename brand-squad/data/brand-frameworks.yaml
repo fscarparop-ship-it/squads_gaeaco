@@ -118,6 +118,40 @@ frameworks:
         description: "The positive transformation — what life looks like after."
     when_to_use: "Website copy, brand messaging, sales scripts, marketing collateral, pitch decks"
 
+  neumeier_brand_gap:
+    source: "Marty Neumeier — The Brand Gap (2003), Zag (2006), The Brand Flip (2015), Scramble (2020)"
+    description: "Bridging the gap between business strategy and creative design through radical differentiation and tribal branding"
+    components:
+      - name: "Onlyness Statement"
+        description: "The litmus test for radical differentiation. Formula: Our [offering] is the only [category] that [point of radical differentiation]. If you cannot use the word 'only,' you do not have a Zag. Extended across 6 dimensions: What, How, Who, Where, Why, When. Serves as the decisional filter for ALL company decisions."
+      - name: "Five Disciplines"
+        description: "The five disciplines that close the Brand Gap: (1) Differentiate — who are you, what do you do, why does it matter; (2) Collaborate — it takes a village to build a brand; (3) Innovate — pursue MAYA (Most Advanced Yet Acceptable); (4) Validate — swap test, hand test, concept test, field test; (5) Cultivate — brands require consistent human behavior aligned with values."
+      - name: "Charismatic Brand"
+        description: "Any product, service, or company for which people believe there is no substitute. Characteristics: dominant category position, 50%+ market share common, up to 40% price premium, dedication to aesthetics — the language of feeling."
+      - name: "Brand Commitment Matrix"
+        description: "From The Brand Flip. Customer side (I.A.M.): Identity (who they are and aspire to be), Aims (jobs to get done), Mores (tribal values). Company side (P.O.V.): Purpose (why beyond money), Onlyness (the only ___ that ___), Values (core beliefs guiding culture). Alignment: Purpose↔Identity, Onlyness↔Aims, Values↔Mores."
+      - name: "Brand Commitment Scale"
+        description: "Three rungs of customer commitment: Satisfaction (trust begins — product as advertised), Delight (trust catches fire — surprised beyond baseline), Engagement (customer enrolls in the tribe — true commitment)."
+      - name: "Zag Framework"
+        description: "Not merely differentiation but RADICAL differentiation. Recipe: Focus + Differentiation + Trends + Compelling communication. Four macro disciplines: Finding your zag, Designing your zag, Building your zag, Renewing your zag. Mantra: When everybody zigs, zag."
+      - name: "Validation Tests"
+        description: "Four tests for brand elements: Swap Test (replace logo with competitor's — does anyone notice?), Hand Test (cover logo — is content recognizable?), Concept Test (test with audience before launch), Field Test (test in real environment — feed, shelf, street)."
+      - name: "Brand Tribe"
+        description: "From The Brand Flip. People do not buy brands — they JOIN brands. A brand tribe is a group of customers trying to achieve similar goals who talk to each other. The battle is no longer between companies, but between tribes. The company with the strongest tribe wins."
+    when_to_use: "Radical differentiation strategy, branding strategy guides, social media brand identity, channel-specific brand guidelines, brand validation, tribal brand building"
+
+  neumeier_scramble:
+    source: "Marty Neumeier — Scramble (2020)"
+    description: "Agile brand strategy sprint method — apply the Five Ps to the Five Qs"
+    components:
+      - name: "Five Qs"
+        description: "The five strategic questions: Purpose (why do we exist?), Customer (who do we serve?), Category (what space do we compete in?), Positioning (how are we different?), Culture (what behaviors define us?)."
+      - name: "Five Ps"
+        description: "The five process moves: Problemizing (find the real problem), Pinballing (gather diverse perspectives), Probing (test assumptions), Prototyping (build fast models), Proofing (validate with evidence)."
+      - name: "Method"
+        description: "Apply the Five Ps to each of the Five Qs. Feels more like playing jazz than classical music. Iterative, non-linear, collaborative."
+    when_to_use: "Agile brand strategy sprints, brand workshops, rapid brand pivots, startup branding sessions"
+
   wheeler_brand_identity_process:
     source: "Alina Wheeler — Designing Brand Identity (2003, 5th ed. 2017)"
     description: "Five-phase process for designing and implementing brand identity"

@@ -145,6 +145,14 @@ multi_specialist_scenarios:
       - kevin-keller: "CBBE measurement"
       - al-ries: "Positioning review"
 
+  brand_to_channels:
+    workflow: wf-brand-to-channels.yaml
+    sequence:
+      - archetype-consultant: "Define archetype and expression guide"
+      - marty-neumeier: "Branding strategy guide (Onlyness + 5 Disciplines + visual guidelines + channel application)"
+      - alina-wheeler: "Build identity system on top of Neumeier's strategic guidelines"
+      - brand-chief: "Validate with Neumeier's 4 tests (swap, hand, concept, field) and compile channel package"
+
 commands:
   - name: diagnose
     description: "Diagnose a brand challenge and route to the right specialist"

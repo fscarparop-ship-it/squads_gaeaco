@@ -75,6 +75,24 @@ domains:
     secondary_agent: kevin-keller
     description: "Brand architecture and portfolio strategy — sub-brands, extensions, portfolio management"
 
+  brand_strategy_guide:
+    keywords: [branding strategy, brand guide, brand guidelines, channel branding, social media brand, visual brand strategy, brand for social, brand for channels, brand touchpoints, brand consistency]
+    primary_agent: marty-neumeier
+    secondary_agent: alina-wheeler
+    description: "Complete branding strategy guide — Neumeier's methodology connecting onlyness, visual identity, and channel-specific execution"
+
+  brand_differentiation:
+    keywords: [radical differentiation, onlyness, onlyness statement, brand gap, zag, brand tribe, charismatic brand, MAYA, brand flip, gut feeling]
+    primary_agent: marty-neumeier
+    secondary_agent: al-ries
+    description: "Radical differentiation and onlyness — Neumeier's Zag, Brand Gap, and Brand Flip frameworks"
+
+  brand_validation:
+    keywords: [swap test, hand test, brand test, brand validation, concept test, field test, brand recognition, brand distinctiveness test]
+    primary_agent: marty-neumeier
+    secondary_agent: byron-sharp
+    description: "Brand element validation — Neumeier's four tests (swap, hand, concept, field) combined with Sharp's distinctiveness metrics"
+
   differentiation_debate:
     keywords: [differentiation vs distinctiveness, should we differentiate, zag, brand gap, radical differentiation]
     primary_agent: marty-neumeier

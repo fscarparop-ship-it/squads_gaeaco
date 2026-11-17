@@ -98,6 +98,8 @@ Cada squad tem:
 | Ad copy | Copy | `copy-chief` | `dan-kennedy`, `frank-kern` |
 | Brand strategy | Brand | `brand-chief` | `david-aaker`, `kevin-keller` |
 | Posicionamento | Brand | `brand-chief` | `al-ries`, `marty-neumeier` |
+| Brand para canais | Brand | `brand-chief` | `marty-neumeier`, `alina-wheeler` |
+| Diferenciacao radical | Brand | `brand-chief` | `marty-neumeier`, `al-ries` |
 | Naming | Brand | `brand-chief` | `naming-strategist`, `domain-scout` |
 | Brand story | Brand | `brand-chief` | `donald-miller` |
 | Design system | Design | `design-chief` | `brad-frost`, `dan-mall` |
