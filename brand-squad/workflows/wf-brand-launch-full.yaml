@@ -1,0 +1,220 @@
+workflow:
+  id: wf-brand-launch-full
+  name: "Lançamento Completo de Marca"
+  version: "1.0.0"
+  description: |
+    Workflow cross-squad que orquestra um lançamento completo de marca usando todos
+    os 5 squads. Começa com estratégia de marca (brand-squad), depois ramifica
+    para narrativa (storytelling), copy (copy-squad), design system (design-squad)
+    e estratégia de tráfego (traffic-masters). Todos os squads executam a partir
+    da mesma fundação de marca — Onlyness Statement, identidade visual e diretrizes
+    por canal. O resultado é uma marca pronta para lançar com todos os assets.
+  trigger: "*brand-launch-full"
+  entry_agent: brand-chief
+  estimated_duration: "3-6 hours"
+  type: sequential_with_parallel
+  cross_squad: true
+  squads_involved:
+    - brand-squad
+    - storytelling
+    - copy-squad
+    - design-squad
+    - traffic-masters
+
+  sequence:
+    # Phase 1: Brand Foundation (sequential)
+    - agent: archetype-consultant
+      squad: brand-squad
+      action: map-archetype
+      creates: archetype_profile
+    - agent: marty-neumeier
+      squad: brand-squad
+      action: branding-strategy-guide
+      creates: branding_strategy
+    - agent: alina-wheeler
+      squad: brand-squad
+      action: build-identity
+      creates: identity_system
+    - agent: donald-miller
+      squad: brand-squad
+      action: create-brand-story
+      creates: brandscript
+    # Phase 2: Parallel squad execution
+    - parallel:
+        - agent: story-chief
+          squad: storytelling
+          action: brand-narrative
+          receives: [archetype_profile, branding_strategy]
+          creates: brand_narratives
+        - agent: copy-chief
+          squad: copy-squad
+          action: write-ad-copy
+          receives: [branding_strategy, brandscript]
+          creates: ad_copy
+        - agent: design-chief
+          squad: design-squad
+          action: create-design-system
+          receives: [identity_system, branding_strategy]
+          creates: design_system
+    # Phase 3: Traffic execution (needs copy + design)
+    - agent: traffic-chief
+      squad: traffic-masters
+      action: create-ad-strategy
+      receives: [branding_strategy, ad_copy, identity_system]
+      creates: campaign_strategy
+    # Phase 4: Final review
+    - agent: brand-chief
+      squad: brand-squad
+      action: review
+      creates: launch_package
+
+phases:
+  - id: phase_1
+    name: "Fundação da Marca"
+    type: sequential
+    squad: brand-squad
+    description: |
+      Constrói toda a fundação de marca: arquétipo, Onlyness Statement,
+      5 Disciplinas, diretrizes visuais estratégicas, sistema de identidade
+      e BrandScript. Todos os squads subsequentes executam a partir desses outputs.
+    steps:
+      - id: step_1a
+        name: "Arquétipo"
+        agent: archetype-consultant
+        task: map-archetype.md
+        outputs: [archetype_profile, brand_expression_guide]
+        checkpoint:
+          gate: "Arquétipo primário e secundário selecionados com guia de expressão"
+          veto: "Arquétipo conflita com valores da marca"
+
+      - id: step_1b
+        name: "Estratégia de Branding (Neumeier)"
+        agent: marty-neumeier
+        task: branding-strategy-guide.md
+        depends_on: [step_1a]
+        outputs: [onlyness_statement, five_disciplines, visual_guidelines, channel_application, commitment_matrix]
+        checkpoint:
+          gate: "Onlyness Statement validado (verdadeiro, relevante, único, verificável)"
+          veto: "Onlyness Statement genérico — não usa a palavra 'única'"
+
+      - id: step_1c
+        name: "Sistema de Identidade Visual"
+        agent: alina-wheeler
+        task: build-identity.md
+        depends_on: [step_1a, step_1b]
+        outputs: [identity_system, brand_guidelines, brand_voice]
+        checkpoint:
+          gate: "Identidade visual e verbal completa, passa no Swap Test e Hand Test"
+          veto: "Identidade contradiz o Onlyness Statement ou o arquétipo"
+
+      - id: step_1d
+        name: "BrandScript (StoryBrand)"
+        agent: donald-miller
+        task: create-brand-story.md
+        depends_on: [step_1b, step_1c]
+        outputs: [brandscript, one_liner, website_copy]
+        checkpoint:
+          gate: "BrandScript completo com 7 elementos, one-liner, e copy para site"
+          veto: "Marca posicionada como herói em vez de guia"
+
+  - id: phase_2
+    name: "Execução Paralela dos Squads"
+    type: parallel
+    description: |
+      Com a fundação de marca pronta, 3 squads executam em paralelo:
+      storytelling constrói narrativas, copy-squad escreve ad copy e landing pages,
+      design-squad cria o design system. Todos usam os mesmos outputs da Phase 1.
+    steps:
+      - id: step_2a
+        name: "Narrativa de Marca"
+        squad: storytelling
+        entry: story-chief
+        workflow: wf-brand-narrative.yaml
+        receives_from_phase_1: [archetype_profile, onlyness_statement, commitment_matrix]
+        outputs: [brand_stories, origin_story, culture_manifesto, presentations]
+        checkpoint:
+          gate: "Narrativa ABT definida, história de origem, 4 tipos de história, manifesto cultural"
+          veto: "Narrativa desconectada do Onlyness Statement"
+
+      - id: step_2b
+        name: "Copy para Canais"
+        squad: copy-squad
+        entry: copy-chief
+        tasks: [write-ad-copy.md, write-landing-page.md]
+        receives_from_phase_1: [brand_voice, onlyness_statement, brandscript, channel_application]
+        outputs: [ad_copy_package, landing_page_copy]
+        checkpoint:
+          gate: "Ad copy e landing page copy alinhados com voz da marca e Onlyness"
+          veto: "Copy não passa no Hand Test — sem o logo, não reconhece a marca"
+
+      - id: step_2c
+        name: "Design System"
+        squad: design-squad
+        entry: design-chief
+        workflow: wf-design-system-creation.yaml
+        receives_from_phase_1: [identity_system, visual_guidelines]
+        outputs: [design_system, component_library, design_tokens]
+        checkpoint:
+          gate: "Design tokens derivados da identidade de marca, componentes consistentes"
+          veto: "Tokens de cor ou tipografia divergem do sistema de identidade"
+
+  - id: phase_3
+    name: "Estratégia de Tráfego"
+    type: sequential
+    squad: traffic-masters
+    depends_on: [phase_2]
+    description: |
+      Com copy, design e narrativas prontos, o traffic-masters monta a estratégia
+      de campanha e os criativos para ads. Usa os assets produzidos pelas outras squads.
+    steps:
+      - id: step_3a
+        name: "Estratégia de Ads"
+        entry: traffic-chief
+        tasks: [create-ad-strategy.md, create-ad-creative.md]
+        receives: [channel_application, identity_system, ad_copy_package, brand_stories]
+        outputs: [campaign_strategy, ad_creative_package]
+        checkpoint:
+          gate: "Estratégia de campanha definida com criativos alinhados à marca"
+          veto: "Criativos quebram diretrizes visuais da marca"
+
+  - id: phase_4
+    name: "Validação e Pacote de Lançamento"
+    type: sequential
+    squad: brand-squad
+    depends_on: [phase_3]
+    description: |
+      Brand Chief compila todos os entregáveis de todos os squads em um pacote
+      de lançamento unificado. Aplica os 4 testes de Neumeier ao pacote completo.
+      Verifica consistência cross-squad.
+    steps:
+      - id: step_4a
+        name: "Revisão Cross-Squad e Pacote Final"
+        agent: brand-chief
+        task: review.md
+        receives: [brand_stories, ad_copy_package, design_system, campaign_strategy]
+        outputs: [launch_package, implementation_roadmap, validation_results]
+        checkpoint:
+          gate: "Todos os assets consistentes entre squads, 4 testes passam, roadmap de implementação pronto"
+          veto: "Inconsistência entre squads — narrativa diz X, copy diz Y, design mostra Z"
+
+completion_criteria:
+  - "Fundação de marca completa (arquétipo, Onlyness, identidade, BrandScript)"
+  - "Narrativa de marca construída (ABT, origem, 4 histórias, manifesto, apresentações)"
+  - "Copy produzido (ad copy, landing page, alinhados com voz da marca)"
+  - "Design system criado (tokens derivados da identidade, componentes)"
+  - "Estratégia de tráfego definida (campanha, criativos alinhados à marca)"
+  - "Pacote de lançamento compilado e validado cross-squad"
+  - "4 testes de Neumeier aplicados ao pacote final (swap, hand, concept, field)"
+  - "Roadmap de implementação com cronograma"
+
+cross_squad_validation:
+  neumeier_tests:
+    swap_test: "Replace the brand's logo with a competitor's across ALL assets (ads, landing page, design system, narratives). If nothing feels wrong, the brand is not differentiated enough."
+    hand_test: "Cover the logo on ALL assets. Can you still tell it's this brand? If not, the visual and verbal identity is not distinctive enough."
+    concept_test: "Show the complete package to 5 people from the target audience. Can they articulate the Onlyness Statement in their own words? If not, the message is not clear enough."
+    field_test: "Deploy one asset per channel (1 ad, 1 story, 1 feed post) for 48 hours. Measure: recognition, recall, and sentiment. Compare to baseline."
+  consistency_check:
+    - "Brand voice in copy matches brand voice in narratives"
+    - "Colors in design system match colors in ad creative"
+    - "Onlyness Statement is the spine of EVERY deliverable"
+    - "No squad contradicts another's output"

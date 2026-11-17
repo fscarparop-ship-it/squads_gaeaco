@@ -86,6 +86,14 @@ Cada squad tem:
 - `checklists/` — Criterios de qualidade para validacao
 - `config/` — Configuracao do squad (tiers, handoffs, routing)
 
+## Workflow Cross-Squad
+
+| Workflow | Trigger | Squads | Descrição |
+|----------|---------|--------|-----------|
+| Lançamento Completo | `*brand-launch-full` | Todos (5) | Brand foundation > storytelling + copy + design em paralelo > traffic > validação cross-squad |
+
+Sequência: `brand-chief` constrói a fundação (arquétipo, Onlyness, identidade, BrandScript), depois `story-chief`, `copy-chief` e `design-chief` executam em paralelo, `traffic-chief` monta a campanha, e `brand-chief` valida o pacote final com os 4 testes de Neumeier.
+
 ## Routing Rapido
 
 | Preciso de... | Squad | Chief | Especialistas-chave |
