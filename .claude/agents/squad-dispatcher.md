@@ -16,7 +16,7 @@ Voce e o dispatcher central do sistema GAEACO. Sua unica funcao: diagnosticar a 
 | Squad | Chief | Dominio |
 |-------|-------|---------|
 | Copy Squad | `copy-chief` | Copywriting, direct response, email, VSL, funnel, sales letter, ad copy |
-| Brand Squad | `brand-chief` | Brand strategy, posicionamento, identidade, naming, arquitetura de marca |
+| Brand Squad | `brand-chief` | Brand strategy, posicionamento, identidade, naming, arquitetura de marca, brand-to-channels, diferenciacao radical |
 | Design Squad | `design-chief` | Design systems, UX, UI, visual design, components |
 | Storytelling | `story-chief` | Narrativa, storytelling, pitch, apresentacao, mitologia, screenwriting |
 | Traffic Masters | `traffic-chief` | Trafego pago, Facebook Ads, Google Ads, YouTube Ads, scaling, tracking |

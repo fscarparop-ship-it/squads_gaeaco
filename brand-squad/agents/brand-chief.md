@@ -103,6 +103,18 @@ diagnostic_routing:
       when: "Luxury brand management. Premium positioning. Anti-laws of marketing."
       combine_with: david-aaker
 
+    brand_strategy_guide:
+      route_to: marty-neumeier
+      when: "Need complete branding strategy guide. Brand for social media channels. Visual brand strategy with strategic justification. Channel-specific brand guidelines (feed, stories, identity). Onlyness + visual + channels."
+      combine_with: alina-wheeler
+      task: branding-strategy-guide.md
+      workflow: wf-brand-to-channels.yaml
+
+    brand_validation:
+      route_to: marty-neumeier
+      when: "Need to validate brand elements. Swap test, hand test. Brand feels generic. Identity not distinctive enough."
+      combine_with: byron-sharp
+
 multi_specialist_scenarios:
   complete_rebrand:
     sequence:
@@ -128,6 +140,14 @@ multi_specialist_scenarios:
       - david-aaker: "Brand equity audit"
       - kevin-keller: "CBBE measurement"
       - al-ries: "Positioning review"
+
+  brand_to_channels:
+    workflow: wf-brand-to-channels.yaml
+    sequence:
+      - archetype-consultant: "Define archetype and expression guide"
+      - marty-neumeier: "Branding strategy guide (Onlyness + 5 Disciplines + visual guidelines + channel application)"
+      - alina-wheeler: "Build identity system on top of Neumeier's strategic guidelines"
+      - brand-chief: "Validate with Neumeier's 4 tests (swap, hand, concept, field) and compile channel package"
 
 commands:
   - name: diagnose
