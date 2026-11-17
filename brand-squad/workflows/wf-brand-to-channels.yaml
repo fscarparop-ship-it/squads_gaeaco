@@ -53,7 +53,7 @@ phases:
       Compromisso. Cada post, cor, fonte e tom de voz reforça a mesma percepção.
     outputs:
       - onlyness_statement: "string"
-      - five_disciplines_applied: "markdown"
+      - five_disciplines: "markdown"
       - visual_guidelines: "markdown"
       - channel_application: "markdown"
       - commitment_matrix: "markdown"

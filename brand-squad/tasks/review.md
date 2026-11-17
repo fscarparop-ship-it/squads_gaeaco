@@ -20,6 +20,16 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named outputs the brand-squad workflows depend on when review runs as a
+  # compilation phase rather than a standalone critique.
+  - campo: validation_results
+    tipo: object
+    destino: "wf-brand-to-channels, wf-brand-launch-full"
+    persistido: false
+  - campo: implementation_roadmap
+    tipo: object
+    destino: "wf-brand-creation, wf-brand-to-channels, wf-brand-launch-full"
+    persistido: false
 
 Checklist:
   - "[ ] Quality checklist applied to specialist output"

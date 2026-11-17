@@ -26,6 +26,14 @@ Saida:
     tipo: object
     destino: "copy-squad (write-ad-copy, write-landing-page)"
     persistido: false
+  - campo: one_liner
+    tipo: string
+    destino: "wf-brand-creation, wf-brand-launch-full"
+    persistido: false
+  - campo: website_copy
+    tipo: object
+    destino: "wf-brand-creation, wf-brand-launch-full"
+    persistido: false
 
 Checklist:
   - "[ ] All 7 SB7 elements defined"
