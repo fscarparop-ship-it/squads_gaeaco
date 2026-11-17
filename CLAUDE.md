@@ -108,6 +108,7 @@ Sequência: `brand-chief` constrói a fundação (arquétipo, Onlyness, identida
 | Posicionamento | Brand | `brand-chief` | `al-ries`, `marty-neumeier` |
 | Brand para canais | Brand | `brand-chief` | `marty-neumeier`, `alina-wheeler` |
 | Diferenciacao radical | Brand | `brand-chief` | `marty-neumeier`, `al-ries` |
+| Auditoria de redes sociais | Brand | `brand-chief` | `marty-neumeier`, `byron-sharp` |
 | Naming | Brand | `brand-chief` | `naming-strategist`, `domain-scout` |
 | Brand story | Brand | `brand-chief` | `donald-miller` |
 | Design system | Design | `design-chief` | `brad-frost`, `dan-mall` |

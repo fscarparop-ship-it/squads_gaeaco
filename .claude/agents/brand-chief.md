@@ -153,6 +153,13 @@ multi_specialist_scenarios:
       - alina-wheeler: "Build identity system on top of Neumeier's strategic guidelines"
       - brand-chief: "Validate with Neumeier's 4 tests (swap, hand, concept, field) and compile channel package"
 
+  social_media_brand_audit:
+    task: social-media-brand-audit.md
+    sequence:
+      - marty-neumeier: "Audit each social channel with the 4 tests, map the Brand Gap, prioritize problems"
+      - byron-sharp: "Validate distinctiveness findings against mental/physical availability data"
+      - brand-chief: "Route corrections to design-squad, copy-squad or traffic-masters per the plan"
+
 commands:
   - name: diagnose
     description: "Diagnose a brand challenge and route to the right specialist"

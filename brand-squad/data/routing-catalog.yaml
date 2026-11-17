@@ -93,6 +93,12 @@ domains:
     secondary_agent: byron-sharp
     description: "Brand element validation — Neumeier's four tests (swap, hand, concept, field) combined with Sharp's distinctiveness metrics"
 
+  social_media_brand_audit:
+    keywords: [social media audit, brand audit, instagram audit, linkedin audit, tiktok audit, social media brand, brand presence, brand consistency social, social brand gap, channel audit]
+    primary_agent: marty-neumeier
+    secondary_agent: byron-sharp
+    description: "Social media brand audit — apply Neumeier's 4 tests to each social channel, map the Brand Gap in social presence, produce a prioritized correction plan"
+
   differentiation_debate:
     keywords: [differentiation vs distinctiveness, should we differentiate, zag, brand gap, radical differentiation]
     primary_agent: marty-neumeier

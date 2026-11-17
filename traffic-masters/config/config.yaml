@@ -174,6 +174,24 @@ cross_cutting:
     linkedin: [media-buyer, nicholas-kusmich]
     cross_platform: [traffic-chief, media-buyer, performance-analyst]
 
+cross_squad:
+  receives_from:
+    brand-squad:
+      inputs: ["channel_application", "identity_system", "onlyness_statement"]
+      handoff: "brand-squad/data/cross-squad-handoffs.yaml#brand_to_traffic"
+      description: |
+        Channel application from the branding strategy guide specifies which platforms to target
+        and how the brand should express itself on each. Identity system provides the visual
+        constraints for ad creative. Onlyness Statement is the core claim every ad must reinforce.
+        Ad creative must pass Neumeier's Swap Test — replace the logo with a competitor's and
+        the ad should feel wrong.
+      primary_task: create-ad-strategy.md
+      input_field: brand_guidelines
+  participates_in:
+    - workflow: "brand-squad/workflows/wf-brand-launch-full.yaml"
+      phase: "phase_3"
+      role: "Build campaign strategy and ad creative from brand assets"
+
 settings:
   activation:
     prefix: "traffic-masters"
