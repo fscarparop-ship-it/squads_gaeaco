@@ -13,6 +13,38 @@ workflow:
     Direciona através de especialistas em storytelling de marca, narrativa pessoal e apresentação.
 
   type: sequential
+
+  # Inputs accepted from brand-squad. All optional when the workflow runs
+  # standalone, but phase_1 vetoes on undefined brand values — so either the
+  # user supplies them or brand-squad hands them over.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_storytelling
+  inputs:
+    - field: brand_values
+      type: list
+      source: "User Input OR brand-squad"
+      required: false
+      description: "Core values the narrative must express. Satisfies the phase_1 veto."
+    - field: onlyness_statement
+      type: string
+      source: brand-squad
+      required: false
+      description: "Becomes the narrative spine — every story reinforces this claim."
+    - field: archetype_profile
+      type: object
+      source: "brand-squad (map-archetype)"
+      required: false
+      description: "Guides character, tone and emotional register across all stories."
+    - field: commitment_matrix
+      type: object
+      source: "brand-squad (branding-strategy-guide)"
+      required: false
+      description: "I.A.M. ↔ P.O.V. from The Brand Flip. Supplies the tribal story — people join brands, they don't buy them."
+    - field: positioning_strategy
+      type: object
+      source: brand-squad
+      required: false
+      description: "Keeps the narrative consistent with the brand's market position."
+
   sequence:
     - agent: park-howell
       action: build-narrative

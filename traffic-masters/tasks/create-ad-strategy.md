@@ -14,6 +14,10 @@ Entrada:
     tipo: string
     origem: User Input
     obrigatorio: true
+  - campo: brand_guidelines
+    tipo: object
+    origem: "brand-squad (branding-strategy-guide / build-identity)"
+    obrigatorio: false
 
 Saida:
   - campo: adStrategy
@@ -48,6 +52,28 @@ Checklist:
 | objective | enum | User prompt | Yes | awareness, traffic, leads, sales, app-installs |
 | funnel | string | User prompt | No | Landing page or funnel URL/description |
 | current_performance | object | User prompt | No | Existing metrics if running ads already |
+| brand_guidelines | object | brand-squad | No | Visual and verbal constraints for creative |
+| channel_application | object | brand-squad | No | Per-channel brand rules from `branding-strategy-guide` |
+| identity_system | object | brand-squad | No | Colors, typography, logo usage from `build-identity` |
+| onlyness_statement | string | brand-squad | No | The core claim every ad must reinforce |
+
+---
+
+## Brand Inputs (when routed from brand-squad)
+
+When this task runs inside `wf-brand-launch-full` phase 3, the brand assets
+constrain creative direction — performance optimization happens inside those
+constraints, not around them.
+
+| Input | How it constrains the strategy |
+|-------|-------------------------------|
+| `channel_application` | Determines which platforms the brand should be on and how it behaves on each. A platform the brand rules exclude is not a targeting opportunity. |
+| `identity_system` | Fixes the visual vocabulary for creative. Creative that breaks it is rejected regardless of CTR. |
+| `onlyness_statement` | Every ad reinforces this claim; ads that would work for a competitor are wasted brand spend. |
+
+Validate creative with Neumeier's Swap Test: replace the logo with a
+competitor's — if the ad still works, it is building the category, not the brand.
+See `brand-squad/data/cross-squad-handoffs.yaml#brand_to_traffic` for the contract.
 
 ---
 
