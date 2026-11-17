@@ -232,6 +232,24 @@ cross_cutting:
   conflict_resolution: "When agents disagree, Copy Chief mediates using awareness level + market context"
   collaboration: "Copy Chief can assign primary + secondary agent for complex projects"
 
+cross_squad:
+  receives_from:
+    brand-squad:
+      inputs: ["brand_voice", "onlyness_statement", "brandscript", "channel_application"]
+      handoff: "brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy"
+      description: |
+        Brand voice and Onlyness Statement define the copy's tone and core differentiation claim.
+        BrandScript (StoryBrand) provides the 7-element messaging framework. Channel application
+        from the branding strategy guide tells WHICH channels need copy and HOW the brand expresses
+        itself in each. Copy must pass Neumeier's Hand Test — cover the logo, the voice must still
+        be unmistakable.
+      primary_task: write-ad-copy.md
+      input_field: brand_voice
+  participates_in:
+    - workflow: "brand-squad/workflows/wf-brand-launch-full.yaml"
+      phase: "phase_2 (parallel)"
+      role: "Write ad copy and landing page copy aligned with brand voice and Onlyness"
+
 settings:
   activation:
     prefix: "copy-squad"

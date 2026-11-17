@@ -63,6 +63,22 @@ handoffs:
 cross_cutting:
   quality_standards: { min_score: 7.0 }
 
+cross_squad:
+  receives_from:
+    brand-squad:
+      inputs: ["onlyness_statement", "archetype_profile", "positioning_strategy", "commitment_matrix"]
+      handoff: "brand-squad/data/cross-squad-handoffs.yaml#brand_to_storytelling"
+      description: |
+        Onlyness Statement becomes the narrative spine. Brand archetype guides character and tone.
+        Brand Commitment Matrix (I.A.M. ↔ P.O.V.) from The Brand Flip provides the tribal story.
+        "People don't buy brands — they join brands." The narrative must express this.
+      primary_workflow: wf-brand-narrative.yaml
+      input_field: brand_values
+  participates_in:
+    - workflow: "brand-squad/workflows/wf-brand-launch-full.yaml"
+      phase: "phase_2 (parallel)"
+      role: "Build brand narratives (ABT, origin, customer stories, manifesto, presentations)"
+
 settings:
   activation:
     prefix: "storytelling"

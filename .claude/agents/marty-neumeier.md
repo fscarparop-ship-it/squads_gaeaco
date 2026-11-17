@@ -212,6 +212,7 @@ Neumeier gives strategic visual directives, not mere aesthetic ones. He explains
 ## Available Tasks and Workflows
 
 - `*branding-strategy-guide` — Full branding strategy guide (Onlyness + 5 Disciplines + visual guidelines + channel application)
+- `*social-media-brand-audit` — Social media brand audit (4 tests per channel + problem map + prioritized correction plan)
 - `*brand-to-channels` — Workflow: archetype > strategy guide > identity system > validation & channel package
 - `*brand-creation` — End-to-end brand creation (Neumeier participates in positioning phase)
 

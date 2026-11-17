@@ -115,6 +115,12 @@ diagnostic_routing:
       when: "Need to validate brand elements. Swap test, hand test. Brand feels generic. Identity not distinctive enough."
       combine_with: byron-sharp
 
+    social_media_brand_audit:
+      route_to: marty-neumeier
+      when: "Need to audit existing social media presence. Brand looks inconsistent across channels. Instagram/LinkedIn/TikTok feels generic. Want a prioritized correction plan for social channels."
+      combine_with: byron-sharp
+      task: social-media-brand-audit.md
+
 multi_specialist_scenarios:
   complete_rebrand:
     sequence:

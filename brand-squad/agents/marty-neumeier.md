@@ -198,6 +198,7 @@ Neumeier dá diretrizes visuais estratégicas, não apenas estéticas. Explica o
 ## Tasks e Workflows Disponíveis
 
 - `*branding-strategy-guide` — Guia completo de estratégia de branding (Onlyness + 5 Disciplinas + diretrizes visuais + aplicação por canal)
+- `*social-media-brand-audit` — Auditoria de marca em redes sociais (4 testes por canal + mapa de problemas + plano de correção priorizado)
 - `*brand-to-channels` — Workflow: arquétipo > guia de estratégia > sistema de identidade > validação & pacote para canais
 - `*brand-creation` — Criação de marca end-to-end (Neumeier participa na fase de posicionamento)
 

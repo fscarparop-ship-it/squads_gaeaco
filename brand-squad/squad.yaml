@@ -58,6 +58,7 @@ components:
     - design-architecture.md
     - map-archetype.md
     - branding-strategy-guide.md
+    - social-media-brand-audit.md
   workflows:
     - wf-brand-creation.yaml
     - wf-rebrand.yaml
@@ -134,3 +135,7 @@ routing_matrix:
     primary: marty-neumeier
     secondary: byron-sharp
     triggers: ["swap test", "hand test", "brand test", "brand validation", "brand recognition test"]
+  social_media_brand_audit:
+    primary: marty-neumeier
+    secondary: byron-sharp
+    triggers: ["social media audit", "brand audit", "instagram audit", "social media brand", "brand presence", "channel audit", "auditar redes sociais"]

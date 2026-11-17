@@ -12,6 +12,7 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 *brand-to-channels        # Brand strategy to channel execution
 *brand-launch-full        # Cross-squad full brand launch (all 5 squads)
 *branding-strategy-guide  # Neumeier's branding strategy guide
+*social-media-brand-audit # Audit social channels with Neumeier's 4 tests
 ```
 
 ## Tier Architecture
@@ -44,11 +45,12 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 | Branding strategy guide (visual + channels) | marty-neumeier | alina-wheeler |
 | Radical differentiation & onlyness | marty-neumeier | al-ries |
 | Brand validation (swap/hand test) | marty-neumeier | byron-sharp |
+| Social media brand audit | marty-neumeier | byron-sharp |
 
 ## Components
 
 - **15 agents** — 1 orchestrator + 10 thinkers + 4 specialists
-- **10 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype, branding-strategy-guide
+- **11 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype, branding-strategy-guide, social-media-brand-audit
 - **4 workflows** — brand-creation (full), rebrand (existing brands), brand-to-channels (strategy to channel execution), brand-launch-full (cross-squad full launch)
 - **1 checklist** — output-quality
 - **3 data files** — brand-frameworks, routing-catalog, cross-squad-handoffs

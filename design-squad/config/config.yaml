@@ -59,6 +59,22 @@ handoffs:
 cross_cutting:
   quality_standards: { min_score: 7.0 }
 
+cross_squad:
+  receives_from:
+    brand-squad:
+      inputs: ["identity_system", "visual_guidelines"]
+      handoff: "brand-squad/data/cross-squad-handoffs.yaml#brand_to_design"
+      description: |
+        Brand identity system (Alina Wheeler) and strategic visual guidelines (Marty Neumeier)
+        feed into design system creation. Colors, typography, logo, and imagery style become
+        the atomic design tokens. The design system MUST pass Neumeier's Swap Test and Hand Test.
+      primary_task: create-design-system.md
+      input_field: brand_guidelines
+  participates_in:
+    - workflow: "brand-squad/workflows/wf-brand-launch-full.yaml"
+      phase: "phase_2 (parallel)"
+      role: "Create design system from brand identity"
+
 settings:
   activation:
     prefix: "design-squad"
