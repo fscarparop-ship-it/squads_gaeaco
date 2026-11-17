@@ -20,6 +20,12 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named output consumed by other squads.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_storytelling
+  - campo: archetype_profile
+    tipo: object
+    destino: "storytelling (wf-brand-narrative)"
+    persistido: false
 
 Checklist:
   - "[ ] All 12 archetypes evaluated and top 3 scored"

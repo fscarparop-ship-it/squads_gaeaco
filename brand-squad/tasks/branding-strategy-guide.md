@@ -24,6 +24,28 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named outputs consumed by other squads.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml
+  - campo: onlyness_statement
+    tipo: string
+    destino: "copy-squad, storytelling, traffic-masters"
+    persistido: false
+  - campo: visual_guidelines
+    tipo: object
+    destino: "design-squad (create-design-system)"
+    persistido: false
+  - campo: channel_application
+    tipo: object
+    destino: "traffic-masters (create-ad-strategy), copy-squad (write-ad-copy)"
+    persistido: false
+  - campo: commitment_matrix
+    tipo: object
+    destino: "storytelling (wf-brand-narrative)"
+    persistido: false
+  - campo: five_disciplines
+    tipo: object
+    destino: Console
+    persistido: false
 
 Checklist:
   - "[ ] Onlyness Statement definido e validado"

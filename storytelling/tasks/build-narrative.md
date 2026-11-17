@@ -14,6 +14,11 @@ Entrada:
     tipo: string
     origem: User Input
     obrigatorio: false
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_storytelling
+  - campo: brand_context
+    tipo: object
+    origem: "brand-squad (map-archetype, branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: narrative_structure

@@ -14,6 +14,11 @@ Entrada:
     tipo: object
     origem: User Input
     obrigatorio: true
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy
+  - campo: brand_voice
+    tipo: object
+    origem: "brand-squad (build-identity)"
+    obrigatorio: false
 
 Saida:
   - campo: sales_letter

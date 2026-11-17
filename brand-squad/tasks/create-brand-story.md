@@ -20,6 +20,12 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named output consumed by other squads.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy
+  - campo: brandscript
+    tipo: object
+    destino: "copy-squad (write-ad-copy, write-landing-page)"
+    persistido: false
 
 Checklist:
   - "[ ] All 7 SB7 elements defined"
