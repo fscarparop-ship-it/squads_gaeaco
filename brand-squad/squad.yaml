@@ -57,6 +57,7 @@ components:
     - create-brand-story.md
     - design-architecture.md
     - map-archetype.md
+    - branding-strategy-guide.md
   workflows:
     - wf-brand-creation.yaml
     - wf-rebrand.yaml

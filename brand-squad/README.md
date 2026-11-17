@@ -38,11 +38,12 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 | Naming & domains | naming-strategist | domain-scout |
 | Archetypes & personality | archetype-consultant | jean-noel-kapferer |
 | Brand architecture & portfolio | david-aaker | kevin-keller |
+| Branding strategy guide (visual + channels) | marty-neumeier | alina-wheeler |
 
 ## Components
 
 - **15 agents** — 1 orchestrator + 10 thinkers + 4 specialists
-- **9 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype
+- **10 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype, branding-strategy-guide
 - **2 workflows** — brand-creation (full), rebrand (existing brands)
 - **1 checklist** — output-quality
 - **2 data files** — brand-frameworks, routing-catalog
