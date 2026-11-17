@@ -14,6 +14,10 @@ Entrada:
     tipo: enum
     origem: User Input
     obrigatorio: true
+  - campo: brand_voice
+    tipo: object
+    origem: "brand-squad (build-identity / branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: ad_copy_package
@@ -48,6 +52,28 @@ Checklist:
 | offer | string | User prompt | No | What the ad is driving to (lead magnet, sale, webinar, etc.) |
 | budget_context | string | User prompt | No | Spend level — affects volume of variations |
 | competitors | list | User prompt | No | Known competitors for differentiation |
+| brand_voice | object | brand-squad | No | Tone, vocabulary, forbidden words — from `build-identity` or `branding-strategy-guide` |
+| onlyness_statement | string | brand-squad | No | The core differentiation claim every ad must reinforce |
+| brandscript | object | brand-squad | No | StoryBrand 7 elements — from `create-brand-story` |
+| channel_application | object | brand-squad | No | Per-channel brand guidelines from `branding-strategy-guide` |
+
+---
+
+## Brand Inputs (when routed from brand-squad)
+
+When this task runs inside `wf-brand-launch-full` or receives a handoff from
+brand-squad, the brand inputs above are not optional context — they are constraints.
+
+| Input | How it constrains the copy |
+|-------|---------------------------|
+| `brand_voice` | Sets tone and vocabulary. Forbidden words are hard limits, not preferences. |
+| `onlyness_statement` | Every variation must reinforce this claim. An ad that would work for a competitor has failed. |
+| `brandscript` | Supplies the customer-as-hero framing; the brand stays the guide. |
+| `channel_application` | Overrides generic platform conventions where the brand's channel rules differ. |
+
+Validate the output with Neumeier's Hand Test: cover the logo and brand name —
+if the copy could belong to any competitor, rewrite it. See
+`brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy` for the contract.
 
 ---
 

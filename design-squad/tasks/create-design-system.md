@@ -14,6 +14,10 @@ Entrada:
     tipo: string
     origem: User Input
     obrigatorio: true
+  - campo: brand_guidelines
+    tipo: object
+    origem: "brand-squad (build-identity / branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: designSystem
@@ -47,6 +51,25 @@ Checklist:
 | `tech_stack` | Frontend framework and tools | YES |
 | `team_size` | Design and dev team size | NO |
 | `accessibility_requirements` | WCAG level target | NO (default: AA) |
+| `identity_system` | Full identity system from brand-squad `build-identity` | NO |
+| `visual_guidelines` | Strategic visual guidelines from `branding-strategy-guide` | NO |
+
+## Brand Inputs (when routed from brand-squad)
+
+When this task runs inside `wf-brand-launch-full` or receives a handoff from
+brand-squad, the identity system is the source of truth for every token.
+
+| Input | How it constrains the system |
+|-------|-----------------------------|
+| `identity_system` | Colors, typography and logo become the design tokens directly — not an inspiration, a derivation. |
+| `visual_guidelines` | Each guideline carries a strategic justification; a token that contradicts it is wrong even if it looks better. |
+
+Two hard gates before the system ships:
+
+- **Swap Test** — replace the brand's logo with a competitor's across the component library. If nothing feels wrong, the tokens are too generic.
+- **Hand Test** — cover the logo. The components must still read as this brand.
+
+See `brand-squad/data/cross-squad-handoffs.yaml#brand_to_design` for the contract.
 
 ## Preconditions
 

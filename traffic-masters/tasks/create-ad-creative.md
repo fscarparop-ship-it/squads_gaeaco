@@ -14,6 +14,10 @@ Entrada:
     tipo: string
     origem: User Input
     obrigatorio: true
+  - campo: brand_guidelines
+    tipo: object
+    origem: "User Input OR brand-squad (build-identity / branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: adCreativePackage
@@ -47,7 +51,25 @@ Checklist:
 | funnel_stage | enum | User prompt | Yes | cold, warm, hot |
 | format | enum | User prompt | No | image, video, carousel, UGC — defaults to platform best practice |
 | num_concepts | number | User prompt | No | Defaults to 5 concepts |
-| brand_guidelines | string | User prompt | No | Colors, fonts, tone constraints |
+| brand_guidelines | object | User prompt OR brand-squad | No | Colors, fonts, tone constraints |
+| identity_system | object | brand-squad | No | Full identity system from `build-identity` |
+| onlyness_statement | string | brand-squad | No | The core claim every concept must reinforce |
+
+---
+
+## Brand Inputs (when routed from brand-squad)
+
+Inside `wf-brand-launch-full` phase 3, `brand_guidelines` arrives as a full
+identity system rather than loose constraints. Concepts are generated within it.
+
+| Input | How it constrains the creative |
+|-------|-------------------------------|
+| `identity_system` | Colors, typography and logo usage are fixed. A concept that breaks them is rejected regardless of projected CTR. |
+| `onlyness_statement` | Each of the concepts must express this claim from a different angle — distinct angles, one claim. |
+
+Every concept must pass the Swap Test before entering the testing plan: drop a
+competitor's logo onto it, and it should stop making sense. See
+`brand-squad/data/cross-squad-handoffs.yaml#brand_to_traffic` for the contract.
 
 ---
 

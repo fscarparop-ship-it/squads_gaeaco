@@ -14,6 +14,10 @@ Entrada:
     tipo: enum
     origem: User Input
     obrigatorio: true
+  - campo: brand_voice
+    tipo: object
+    origem: "brand-squad (build-identity / branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: landing_page_copy
@@ -48,6 +52,26 @@ Checklist:
 | traffic_source | string | User prompt | No | Where visitors come from (ads, email, organic, social) |
 | awareness_level | enum | User prompt | No | Awareness level of incoming traffic |
 | page_length | string | User prompt | No | short (opt-in), medium (webinar), long (sales) — auto-detected from type |
+| brand_voice | object | brand-squad | No | Tone, vocabulary, forbidden words |
+| onlyness_statement | string | brand-squad | No | The core claim the page must reinforce |
+| brandscript | object | brand-squad | No | StoryBrand 7 elements — from `create-brand-story` |
+
+---
+
+## Brand Inputs (when routed from brand-squad)
+
+When this page is written inside `wf-brand-launch-full`, the slippery slide still
+applies — but it runs in the brand's voice, not a generic high-conversion voice.
+
+| Input | How it constrains the page |
+|-------|---------------------------|
+| `brand_voice` | Tone and vocabulary throughout. Forbidden words are hard limits. |
+| `onlyness_statement` | The headline and lead must carry this claim, not a generic benefit promise. |
+| `brandscript` | Visitor is the hero; the brand is the guide. Never invert this to win a conversion. |
+
+Validate with Neumeier's Hand Test: strip the logo and brand name — the page
+should still be unmistakably this brand. See
+`brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy` for the contract.
 
 ---
 
