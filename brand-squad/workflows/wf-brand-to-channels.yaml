@@ -1,0 +1,108 @@
+workflow:
+  id: wf-brand-to-channels
+  name: "Marca para Canais"
+  version: "1.0.0"
+  description: |
+    Workflow que transforma estratégia de marca em execução por canal. Começa
+    com o diagnóstico de diferenciação radical (Neumeier), passa pela definição
+    de identidade visual estratégica (Wheeler), traduz em aplicação por canal,
+    e valida com os testes de Neumeier (swap, hand, concept, field).
+    Produz um guia de branding completo pronto para execução em feed, stories,
+    identidade visual e outros touchpoints.
+  trigger: "*brand-to-channels"
+  entry_agent: brand-chief
+  estimated_duration: "45-90 minutes"
+  type: sequential
+  sequence:
+    - agent: archetype-consultant
+      action: map-archetype
+      creates: archetype_profile
+    - agent: marty-neumeier
+      action: branding-strategy-guide
+      creates: branding_strategy
+    - agent: alina-wheeler
+      action: build-identity
+      creates: identity_system
+    - agent: brand-chief
+      action: review
+      creates: channel_brand_package
+
+phases:
+  - id: phase_0
+    name: "Arquétipo e Personalidade"
+    agent: archetype-consultant
+    task: map-archetype.md
+    description: "Define o arquétipo primário e secundário que guiará todas as decisões visuais e verbais nos canais. O arquétipo é o alicerce emocional da marca."
+    outputs:
+      - archetype_profile: "markdown"
+      - brand_expression_guide: "object"
+    checkpoint:
+      gate: "Arquétipo selecionado com guia de expressão"
+      veto: "Arquétipo conflita com valores da marca ou aspirações do público"
+
+  - id: phase_1
+    name: "Estratégia de Branding — Neumeier"
+    agent: marty-neumeier
+    task: branding-strategy-guide.md
+    depends_on: [phase_0]
+    description: |
+      O coração do workflow. Neumeier constrói o Onlyness Statement, aplica as
+      5 Disciplinas ao contexto da marca, define diretrizes visuais estratégicas
+      (não apenas estéticas — cada escolha tem justificativa estratégica), e cria
+      a aplicação por canal. Produz o Brand Commitment Matrix e a Escala de
+      Compromisso. Cada post, cor, fonte e tom de voz reforça a mesma percepção.
+    outputs:
+      - onlyness_statement: "string"
+      - five_disciplines_applied: "markdown"
+      - visual_guidelines: "markdown"
+      - channel_application: "markdown"
+      - commitment_matrix: "markdown"
+    checkpoint:
+      gate: "Onlyness Statement validado nos 4 critérios (verdadeiro, relevante, único, verificável) e diretrizes por canal definidas"
+      veto: "Onlyness Statement genérico — não passa no teste da palavra 'única'"
+
+  - id: phase_2
+    name: "Sistema de Identidade Visual"
+    agent: alina-wheeler
+    task: build-identity.md
+    depends_on: [phase_0, phase_1]
+    description: |
+      Wheeler transforma as diretrizes estratégicas de Neumeier em um sistema
+      de identidade visual completo. Cores, tipografia, logo, estilo fotográfico,
+      iconografia — tudo construído sobre o Onlyness Statement e as 5 Disciplinas.
+      O sistema deve passar nos testes de validação de Neumeier (swap test, hand test).
+    outputs:
+      - identity_system: "markdown"
+      - brand_guidelines: "markdown"
+    checkpoint:
+      gate: "Sistema de identidade visual completo e alinhado com Onlyness Statement"
+      veto: "Identidade visual não passa no Swap Test ou Hand Test de Neumeier"
+
+  - id: phase_3
+    name: "Validação e Pacote Final"
+    agent: brand-chief
+    task: review.md
+    depends_on: [phase_1, phase_2]
+    description: |
+      Brand Chief compila todos os entregáveis em um pacote de marca para canais.
+      Aplica a checklist de qualidade. Verifica consistência entre arquétipo,
+      onlyness, identidade e aplicação por canal. Executa os 4 testes de validação
+      de Neumeier no pacote final.
+    outputs:
+      - channel_brand_package: "markdown"
+      - validation_results: "object"
+      - implementation_roadmap: "object"
+    checkpoint:
+      gate: "Todos os elementos consistentes e prontos para execução nos canais"
+      veto: "Inconsistências entre onlyness, identidade visual e aplicação por canal"
+
+completion_criteria:
+  - "Arquétipo definido com guia de expressão"
+  - "Onlyness Statement construído e validado nos 4 critérios"
+  - "5 Disciplinas aplicadas ao contexto da marca"
+  - "Diretrizes visuais estratégicas definidas com justificativas"
+  - "Aplicação por canal documentada (feed, stories, identidade, outros)"
+  - "Brand Commitment Matrix preenchida com análise de alinhamento"
+  - "Sistema de identidade visual completo (cores, tipografia, logo, estilo)"
+  - "4 testes de validação de Neumeier executados no pacote final"
+  - "Pacote de marca para canais compilado com roadmap de implementação"

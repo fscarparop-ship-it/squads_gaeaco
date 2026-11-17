@@ -141,7 +141,7 @@ handoffs:
     collaborates_with: [kevin-keller]
     escalates_to: [brand-chief]
   marty-neumeier:
-    collaborates_with: [al-ries, emily-heyward]
+    collaborates_with: [al-ries, emily-heyward, alina-wheeler, byron-sharp, archetype-consultant]
     escalates_to: [brand-chief]
   donald-miller:
     collaborates_with: [miller-sticky-brand, denise-yohn]

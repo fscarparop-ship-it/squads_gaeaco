@@ -5,10 +5,12 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 ## Quick Start
 
 ```
-@brand-chief        # Activate the orchestrator
-*diagnose            # Triage your brand challenge
-*brand-creation      # End-to-end brand creation workflow
-*rebrand             # Rebrand an existing brand
+@brand-chief           # Activate the orchestrator
+*diagnose              # Triage your brand challenge
+*brand-creation        # End-to-end brand creation workflow
+*rebrand               # Rebrand an existing brand
+*brand-to-channels     # Brand strategy to channel execution
+*branding-strategy-guide  # Neumeier's branding strategy guide
 ```
 
 ## Tier Architecture
@@ -39,12 +41,14 @@ The definitive brand strategy squad — 10 legendary brand thinkers + 4 function
 | Archetypes & personality | archetype-consultant | jean-noel-kapferer |
 | Brand architecture & portfolio | david-aaker | kevin-keller |
 | Branding strategy guide (visual + channels) | marty-neumeier | alina-wheeler |
+| Radical differentiation & onlyness | marty-neumeier | al-ries |
+| Brand validation (swap/hand test) | marty-neumeier | byron-sharp |
 
 ## Components
 
 - **15 agents** — 1 orchestrator + 10 thinkers + 4 specialists
 - **10 tasks** — audit-brand, diagnose, review, create-positioning, generate-names, build-identity, create-brand-story, design-architecture, map-archetype, branding-strategy-guide
-- **2 workflows** — brand-creation (full), rebrand (existing brands)
+- **3 workflows** — brand-creation (full), rebrand (existing brands), brand-to-channels (strategy to channel execution)
 - **1 checklist** — output-quality
 - **2 data files** — brand-frameworks, routing-catalog
 
@@ -55,6 +59,9 @@ End-to-end: archetype > positioning > naming > identity > story > launch package
 
 ### Rebrand (`*rebrand`)
 Audit > positioning review > identity update > messaging refresh.
+
+### Brand to Channels (`*brand-to-channels`)
+Archetype > Neumeier branding strategy guide (onlyness + 5 disciplines + visual guidelines) > identity system > validation & channel package.
 
 ## Requirements
 

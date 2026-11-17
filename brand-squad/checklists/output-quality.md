@@ -57,6 +57,25 @@ CRITICAL items are marked with (CRITICAL) suffix.]]
 - [ ] Brand can scale across channels without losing coherence
 - [ ] Internal brand (culture/employer) aligns with external brand
 
+## 6. Radical Differentiation (Neumeier)
+
+- [ ] Onlyness Statement uses the word "only" — if not, differentiation is insufficient (CRITICAL)
+- [ ] Onlyness Statement passes 4 validation criteria: true, relevant, unique, verifiable
+- [ ] Brand passes Swap Test — logo replaced with competitor's, content still recognizable
+- [ ] Brand passes Hand Test — logo covered, content still identifiable as this brand
+- [ ] Five Disciplines addressed: Differentiate, Collaborate, Innovate, Validate, Cultivate
+- [ ] MAYA principle applied — most advanced yet acceptable, not generic
+- [ ] Design decisions have strategic justification, not just aesthetic preference (CRITICAL)
+
+## 7. Channel Application
+
+- [ ] Each visual decision justified by the perception it creates, not just aesthetics (CRITICAL)
+- [ ] Feed guidelines include grid pattern, post formula, and content prohibitions
+- [ ] Stories guidelines maintain recognizability in ephemeral format
+- [ ] Identity/logo rules cover dark mode, varied backgrounds, and minimum sizes
+- [ ] Tone of voice adapted per channel while maintaining core personality
+- [ ] Brand Commitment Matrix (I.A.M. ↔ P.O.V.) shows alignment between tribe and brand
+
 ---
 
 ## PASS/FAIL Criteria

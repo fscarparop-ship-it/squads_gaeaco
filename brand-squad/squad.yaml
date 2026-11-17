@@ -61,6 +61,7 @@ components:
   workflows:
     - wf-brand-creation.yaml
     - wf-rebrand.yaml
+    - wf-brand-to-channels.yaml
   checklists:
     - output-quality.md
 
@@ -116,3 +117,15 @@ routing_matrix:
     primary: david-aaker
     secondary: kevin-keller
     triggers: ["brand architecture", "sub-brands", "branded house", "house of brands", "portfolio"]
+  brand_strategy_guide:
+    primary: marty-neumeier
+    secondary: alina-wheeler
+    triggers: ["branding strategy", "brand guide", "channel branding", "social media brand", "visual brand strategy", "brand touchpoints"]
+  brand_differentiation:
+    primary: marty-neumeier
+    secondary: al-ries
+    triggers: ["radical differentiation", "onlyness", "brand gap", "zag", "brand tribe", "charismatic brand", "MAYA"]
+  brand_validation:
+    primary: marty-neumeier
+    secondary: byron-sharp
+    triggers: ["swap test", "hand test", "brand test", "brand validation", "brand recognition test"]
