@@ -121,8 +121,8 @@ handoffs:
         field: brand_guidelines
         maps_to: "Colors, fonts, tone constraints for ad creative development"
       - task: create-ad-strategy.md
-        field: brand_context
-        maps_to: "Brand positioning informs audience targeting and messaging strategy"
+        field: brand_guidelines
+        maps_to: "Brand positioning and channel rules inform audience targeting and messaging strategy"
     handoff_contract: |
       The brand-squad delivers channel-specific application guidelines (Neumeier) and the
       visual identity system (Wheeler). The traffic-masters squad uses these to constrain

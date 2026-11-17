@@ -14,6 +14,11 @@ Entrada:
     tipo: enum
     origem: User Input
     obrigatorio: true
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_copy
+  - campo: brand_voice
+    tipo: object
+    origem: "User Input OR brand-squad (build-identity)"
+    obrigatorio: false
 
 Saida:
   - campo: email_sequence
@@ -46,7 +51,7 @@ Checklist:
 | sequence_type | enum | User prompt | Yes | soap-opera, daily, nurture, launch, welcome, cart-abandon |
 | num_emails | number | User prompt | No | Defaults by type: soap-opera=5, daily=7, nurture=10, launch=7, welcome=5, cart-abandon=3 |
 | offer | object | User prompt | No | Required for soap-opera and launch types |
-| brand_voice | string | User prompt | No | Tone and personality of the sender |
+| brand_voice | object | User prompt OR brand-squad | No | Tone and personality of the sender; arrives as full voice guidelines when handed off from `build-identity` |
 | entry_point | string | User prompt | No | What opt-in or action triggered this sequence |
 
 ---

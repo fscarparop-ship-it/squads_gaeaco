@@ -20,6 +20,12 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named output consumed by other squads.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_storytelling
+  - campo: positioning_strategy
+    tipo: object
+    destino: "storytelling (wf-brand-narrative, create-pitch)"
+    persistido: false
 
 Checklist:
   - "[ ] Category ladder mapped with competitor positions"

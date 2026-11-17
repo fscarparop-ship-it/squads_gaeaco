@@ -14,6 +14,11 @@ Entrada:
     tipo: string
     origem: User Input
     obrigatorio: true
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml#brand_to_design
+  - campo: brand_reference
+    tipo: object
+    origem: "brand-squad (build-identity, branding-strategy-guide)"
+    obrigatorio: false
 
 Saida:
   - campo: designAudit

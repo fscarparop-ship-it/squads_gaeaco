@@ -20,6 +20,16 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named outputs consumed by other squads.
+  # Contract: brand-squad/data/cross-squad-handoffs.yaml
+  - campo: identity_system
+    tipo: object
+    destino: "design-squad (create-design-system), traffic-masters (create-ad-creative)"
+    persistido: false
+  - campo: brand_voice
+    tipo: object
+    destino: "copy-squad (write-ad-copy, write-landing-page, write-email-sequence, write-sales-letter)"
+    persistido: false
 
 Checklist:
   - "[ ] Visual identity system defined (colors, typography, logo)"
