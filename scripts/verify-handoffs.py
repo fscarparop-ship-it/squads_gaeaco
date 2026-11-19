@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Verify every field named in the cross-squad handoff contracts actually exists.
+"""Verify brand-squad handoff contracts and workflow outputs resolve to real fields.
 
-The contracts in brand-squad/data/cross-squad-handoffs.yaml name the outputs a
-sending task produces and the input fields a receiving task consumes. Nothing
-enforces that those names match the task files, so a contract can silently
-reference a field that was never declared — the handoff then looks wired up
-while nothing can receive it.
+1. Handoff contracts. brand-squad/data/cross-squad-handoffs.yaml names the
+   outputs a sending task produces and the input fields a receiving task
+   consumes. Nothing enforces that those names match the task files, so a
+   contract can silently reference a field that was never declared.
+
+2. brand-squad workflow outputs. Every output a brand-squad workflow step
+   names for a brand-squad task must be declared in that task's Saida or
+   Entrada. Scoped to brand-squad: the other squads use workflow outputs for
+   granular deliverables and have not adopted this convention.
 
 Run: python3 scripts/verify-handoffs.py
 Exits non-zero and lists every unresolved reference.
 """
 
+import glob
 import os
 import re
 import sys
@@ -36,9 +41,35 @@ def declares(text, name):
     return re.search(pattern, text, re.M) is not None
 
 
+def workflow_steps(data):
+    for phase in data.get("phases", []):
+        yield phase.get("task"), phase.get("outputs", [])
+        for step in phase.get("steps", []):
+            yield step.get("task"), step.get("outputs", [])
+
+
+def check_brand_workflows(failures):
+    for path in sorted(glob.glob("brand-squad/workflows/*.yaml")):
+        data = yaml.safe_load(open(path))
+        for task, outputs in workflow_steps(data):
+            if not task or not outputs:
+                continue
+            task_path = os.path.join("brand-squad", "tasks", task)
+            if not os.path.exists(task_path):
+                failures.append(f"{path}: task not found — {task}")
+                continue
+            text = open(task_path).read()
+            for output in outputs:
+                name = list(output)[0] if isinstance(output, dict) else output
+                if not declares(text, name):
+                    failures.append(f"{path}: {task} does not declare output '{name}'")
+
+
 def main():
     contracts = yaml.safe_load(open(CONTRACTS))
     failures = []
+
+    check_brand_workflows(failures)
 
     for name, handoff in contracts["handoffs"].items():
         for output in handoff.get("source_outputs", []):

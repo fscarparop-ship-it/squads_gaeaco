@@ -30,6 +30,18 @@ Saida:
     tipo: object
     destino: "wf-brand-creation, wf-brand-to-channels, wf-brand-launch-full"
     persistido: false
+  - campo: brand_package
+    tipo: object
+    destino: "wf-brand-creation"
+    persistido: false
+  - campo: channel_brand_package
+    tipo: object
+    destino: "wf-brand-to-channels"
+    persistido: false
+  - campo: launch_package
+    tipo: object
+    destino: "wf-brand-launch-full"
+    persistido: false
 
 Checklist:
   - "[ ] Quality checklist applied to specialist output"

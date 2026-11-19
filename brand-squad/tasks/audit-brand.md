@@ -20,6 +20,23 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named outputs of the rebrand workflow (wf-rebrand).
+  - campo: audit_report
+    tipo: string
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: health_score
+    tipo: number
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: preserve_list
+    tipo: list
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: fix_list
+    tipo: list
+    destino: "wf-rebrand"
+    persistido: false
 
 Checklist:
   - "[ ] Brand equity scored across 5 Aaker pillars"

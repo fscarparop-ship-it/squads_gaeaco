@@ -34,6 +34,15 @@ Saida:
     tipo: object
     destino: "wf-brand-creation, wf-brand-to-channels, wf-brand-launch-full"
     persistido: false
+  # Named outputs of wf-rebrand.
+  - campo: updated_identity
+    tipo: object
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: change_summary
+    tipo: string
+    destino: "wf-rebrand"
+    persistido: false
 
 Checklist:
   - "[ ] Visual identity system defined (colors, typography, logo)"

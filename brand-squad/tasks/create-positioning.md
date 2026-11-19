@@ -26,6 +26,27 @@ Saida:
     tipo: object
     destino: "storytelling (wf-brand-narrative, create-pitch)"
     persistido: false
+  # Named outputs of wf-brand-creation and wf-rebrand.
+  - campo: positioning_statement
+    tipo: string
+    destino: "wf-brand-creation"
+    persistido: false
+  - campo: tagline
+    tipo: string
+    destino: "wf-brand-creation"
+    persistido: false
+  - campo: positioning_review
+    tipo: object
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: new_positioning
+    tipo: object
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: change_magnitude
+    tipo: string
+    destino: "wf-rebrand"
+    persistido: false
 
 Checklist:
   - "[ ] Category ladder mapped with competitor positions"

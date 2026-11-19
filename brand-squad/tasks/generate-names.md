@@ -20,6 +20,15 @@ Saida:
     tipo: string
     destino: Console
     persistido: false
+  # Named outputs of wf-brand-creation.
+  - campo: naming_candidates
+    tipo: list
+    destino: "wf-brand-creation"
+    persistido: false
+  - campo: top_finalists
+    tipo: list
+    destino: "wf-brand-creation"
+    persistido: false
 
 Checklist:
   - "[ ] 30-50 raw candidates generated across 4+ categories"
