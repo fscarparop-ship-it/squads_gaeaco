@@ -34,6 +34,15 @@ Saida:
     tipo: object
     destino: "wf-brand-creation, wf-brand-launch-full"
     persistido: false
+  # Named outputs of wf-rebrand.
+  - campo: updated_brandscript
+    tipo: object
+    destino: "wf-rebrand"
+    persistido: false
+  - campo: updated_messaging
+    tipo: object
+    destino: "wf-rebrand"
+    persistido: false
 
 Checklist:
   - "[ ] All 7 SB7 elements defined"
