@@ -26,6 +26,10 @@ Saida:
     tipo: object
     destino: "storytelling (wf-brand-narrative)"
     persistido: false
+  - campo: brand_expression_guide
+    tipo: object
+    destino: "wf-brand-creation, wf-brand-to-channels, wf-brand-launch-full"
+    persistido: false
 
 Checklist:
   - "[ ] All 12 archetypes evaluated and top 3 scored"

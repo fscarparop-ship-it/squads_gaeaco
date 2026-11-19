@@ -30,6 +30,10 @@ Saida:
     tipo: object
     destino: "copy-squad (write-ad-copy, write-landing-page, write-email-sequence, write-sales-letter)"
     persistido: false
+  - campo: brand_guidelines
+    tipo: object
+    destino: "wf-brand-creation, wf-brand-to-channels, wf-brand-launch-full"
+    persistido: false
 
 Checklist:
   - "[ ] Visual identity system defined (colors, typography, logo)"
